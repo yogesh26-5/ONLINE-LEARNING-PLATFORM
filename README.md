@@ -83,3 +83,5 @@ This online learning platform delivers a professional, functional, and engaging 
 It prioritizes usability, performance, and clean design—proving that a great e-learning site doesn’t need complex animations to be effective.
 
 OUTPUT:
+![Image](https://github.com/user-attachments/assets/73bdd44b-1608-4b79-9b3c-72c145e81cfa)
+![Image](https://github.com/user-attachments/assets/4fe6f85d-eca0-449f-8bcd-c6448cf73f03)
