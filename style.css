@@ -1,0 +1,279 @@
+/* Global Styles */
+:root {
+  --study-blue: #3B82F6;
+  --study-blue-dark: #2563EB;
+  --study-blue-light: #DBEAFE;
+  --study-purple: #8B5CF6;
+  --study-purple-light: #EDE9FE;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #333;
+}
+
+/* Background Gradient */
+.bg-gradient-primary {
+  background: linear-gradient(to right, var(--study-blue), var(--study-purple));
+}
+
+/* Helper Classes */
+.bg-white-10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-purple-light {
+  background-color: var(--study-purple-light);
+}
+
+.bg-blue-light {
+  background-color: var(--study-blue-light);
+}
+
+.text-purple {
+  color: var(--study-purple);
+}
+
+.text-study-blue {
+  color: var(--study-blue);
+}
+
+/* Bootstrap Overrides */
+.btn-primary {
+  background-color: var(--study-blue);
+  border-color: var(--study-blue);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--study-blue-dark);
+  border-color: var(--study-blue-dark);
+}
+
+.bg-primary-subtle {
+  background-color: var(--study-blue-light) !important;
+}
+
+.text-primary {
+  color: var(--study-blue) !important;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-shape-1 {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.hero-shape-2 {
+  position: absolute;
+  right: 25%;
+  top: 10%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(40px);
+  z-index: 0;
+}
+
+/* Feature Icons */
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  font-size: 24px;
+}
+
+/* Course Cards */
+.course-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.course-thumbnail {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.course-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-thumbnail img {
+  transform: scale(1.05);
+}
+
+.course-progress-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Video Player */
+.video-container {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.custom-video-player {
+  width: 100%;
+  height: 100%;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover .video-controls,
+.video-controls.visible {
+  opacity: 1;
+}
+
+/* Quiz Styling */
+.quiz-option {
+  transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+  background-color: #f8f9fa;
+}
+
+.quiz-option.selected {
+  border-color: var(--study-blue);
+  background-color: var(--study-blue-light);
+}
+
+.quiz-option.correct {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.quiz-option.incorrect {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Progress Circle */
+.progress-circle-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.progress-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(var(--study-blue) var(--progress), #e2e8f0 0deg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-circle::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.progress-text {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Result Circle */
+.result-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid var(--study-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Social Icons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Footer Links */
+.footer-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+.footer-link-sm {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.footer-link-sm:hover {
+  color: white;
+}
+
+/* Helper for max width */
+.max-w-md {
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}

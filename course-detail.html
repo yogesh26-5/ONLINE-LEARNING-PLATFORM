@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Detail | StudyStream</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <i class="fa-solid fa-book-open text-primary me-2 fs-3"></i>
+        <span class="fs-4 fw-bold text-primary">StudyStream</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="courses.html">Courses</a>
+          </li>
+          <li class="nav-item dropdown d-none" id="user-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              <img src="" alt="Profile" id="user-avatar" class="rounded-circle me-1" width="24" height="24">
+              <span id="user-name">User</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><div class="dropdown-item-text" id="user-email">user@example.com</div></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="profile.html"><i class="fa-solid fa-user me-2"></i>Profile</a></li>
+              <li><a class="dropdown-item" href="courses.html"><i class="fa-solid fa-book me-2"></i>My Courses</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket me-2"></i>Log out</a></li>
+            </ul>
+          </li>
+          <li class="nav-item d-flex" id="auth-buttons">
+            <a class="nav-link" href="auth.html?type=login">Log in</a>
+            <a class="btn btn-primary ms-2" href="auth.html?type=signup">Sign up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Course Header -->
+    <div class="bg-light border-bottom">
+      <div class="container py-4">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-2">
+                <li class="breadcrumb-item"><a href="courses.html">Courses</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="course-breadcrumb-title">Course Title</li>
+              </ol>
+            </nav>
+            <h1 class="fw-bold mb-2" id="course-title">Course Title</h1>
+            <p class="mb-3" id="course-description">Course description will be displayed here.</p>
+            <div class="d-flex align-items-center flex-wrap gap-3 mb-2">
+              <div class="d-flex align-items-center">
+                <span class="badge bg-primary-subtle text-primary me-2" id="course-category">Category</span>
+                <span class="d-flex align-items-center text-muted">
+                  <i class="fa-solid fa-user-tie me-1"></i>
+                  <span id="course-instructor">Instructor Name</span>
+                </span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center me-3">
+                  <i class="fa-solid fa-star text-warning me-1"></i>
+                  <span id="course-rating">4.5</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="fa-solid fa-users text-primary me-1"></i>
+                  <span id="enrolled-count">1,234</span> enrolled
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center text-muted">
+              <div class="me-3">
+                <i class="fa-solid fa-film me-1"></i>
+                <span id="lesson-count">10</span> lessons
+              </div>
+              <div class="me-3">
+                <i class="fa-regular fa-clock me-1"></i>
+                <span id="course-duration">2h 30m</span> total
+              </div>
+              <div class="me-3">
+                <i class="fa-solid fa-calendar-days me-1"></i>
+                <span id="last-updated">Last updated: Jan 15, 2024</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+            <div class="progress-circle-container d-none" id="progress-container">
+              <div class="progress-circle-wrapper">
+                <div class="progress-circle" id="progress-circle">
+                  <span class="progress-text" id="progress-percentage">0%</span>
+                </div>
+              </div>
+              <span class="text-muted d-block mt-2">Course Progress</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-8">
+          <!-- Video Player Section -->
+          <div id="lesson-content" class="mb-4">
+            <div class="video-container mb-4" id="video-container">
+              <!-- Video player will be inserted here -->
+            </div>
+            <div class="quiz-container d-none" id="quiz-container">
+              <!-- Quiz will be inserted here -->
+            </div>
+            
+            <div id="lesson-details">
+              <h2 class="fs-3 fw-bold mb-3" id="lesson-title">Lesson Title</h2>
+              <div class="mb-4" id="lesson-description">
+                Lesson description will appear here.
+              </div>
+              
+              <div id="lesson-resources" class="mb-4 d-none">
+                <h4 class="fs-5 fw-semibold mb-3">Resources</h4>
+                <div class="list-group" id="resources-list">
+                  <!-- Resources will be added here -->
+                </div>
+              </div>
+              
+              <!-- Lesson Navigation -->
+              <div class="d-flex justify-content-between border-top pt-4">
+                <button class="btn btn-outline-primary" id="prev-lesson-btn" disabled>
+                  <i class="fa-solid fa-arrow-left me-1"></i>
+                  Previous Lesson
+                </button>
+                
+                <button class="btn btn-primary" id="mark-complete-btn">
+                  <i class="fa-solid fa-check me-1"></i>
+                  Mark as Complete
+                </button>
+                
+                <button class="btn btn-outline-primary" id="next-lesson-btn" disabled>
+                  Next Lesson
+                  <i class="fa-solid fa-arrow-right ms-1"></i>
+                </button>
+                
+                <button class="btn btn-primary d-none" id="start-quiz-btn">
+                  <i class="fa-solid fa-question-circle me-1"></i>
+                  Start Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tabs Section -->
+          <div class="mt-5">
+            <ul class="nav nav-tabs mb-4" id="courseTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">Overview</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button" role="tab">Curriculum</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="discussion-tab" data-bs-toggle="tab" data-bs-target="#discussion" type="button" role="tab">Discussion</button>
+              </li>
+            </ul>
+            
+            <div class="tab-content" id="courseTabsContent">
+              <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                <div class="mb-4">
+                  <h3 class="fs-4 fw-bold mb-3">About this course</h3>
+                  <div id="course-about">
+                    <!-- Course about content will be added here -->
+                  </div>
+                </div>
+                
+                <div class="mb-4">
+                  <h3 class="fs-4 fw-bold mb-3">What you'll learn</h3>
+                  <ul class="list-group" id="learning-objectives">
+                    <!-- Learning objectives will be added here -->
+                  </ul>
+                </div>
+                
+                <div class="mb-4">
+                  <h3 class="fs-4 fw-bold mb-3">Requirements</h3>
+                  <ul class="list-group" id="course-requirements">
+                    <!-- Requirements will be added here -->
+                  </ul>
+                </div>
+                
+                <div class="mb-4">
+                  <h3 class="fs-4 fw-bold mb-3">Who this course is for</h3>
+                  <div id="target-audience">
+                    <!-- Target audience content will be added here -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-pane fade" id="curriculum" role="tabpanel">
+                <h3 class="fs-4 fw-bold mb-3">Course Curriculum</h3>
+                
+                <div class="accordion" id="curriculum-accordion">
+                  <!-- Curriculum sections will be added here -->
+                </div>
+              </div>
+              
+              <div class="tab-pane fade" id="discussion" role="tabpanel">
+                <div class="mb-4">
+                  <h3 class="fs-4 fw-bold mb-3">Course Discussion</h3>
+                  <p id="discussion-login-message" class="d-none">Please <a href="auth.html?type=login">login</a> to participate in the discussion.</p>
+                  
+                  <div id="discussion-form" class="mb-4 d-none">
+                    <form id="comment-form">
+                      <div class="mb-3">
+                        <textarea class="form-control" id="comment-text" rows="3" placeholder="Add your comment or question here..."></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                  
+                  <div id="discussion-threads">
+                    <!-- Discussion threads will be added here -->
+                    <p class="text-muted text-center py-4" id="no-discussions-message">No discussions yet. Be the first to start a conversation!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-lg-4 mt-5 mt-lg-0">
+          <div class="sticky-top" style="top: 100px;">
+            <div class="card shadow-sm mb-4" id="enrollment-card">
+              <div class="card-body">
+                <h4 class="fs-5 fw-bold mb-3">Course Access</h4>
+                <div class="alert alert-info d-flex align-items-center" id="login-prompt">
+                  <i class="fa-solid fa-circle-info me-2"></i>
+                  <div>
+                    <strong>Sign in required</strong>
+                    <p class="mb-0">Please log in to enroll in this course and track your progress.</p>
+                  </div>
+                </div>
+                <button class="btn btn-primary w-100" id="enroll-btn">Enroll Now</button>
+              </div>
+            </div>
+            
+            <div class="card shadow-sm" id="lessons-sidebar">
+              <div class="card-header bg-white">
+                <h4 class="fs-5 fw-bold mb-0">Course Lessons</h4>
+              </div>
+              <div class="list-group list-group-flush" id="lesson-list">
+                <!-- Lesson list will be added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Quiz Completion Modal -->
+  <div class="modal fade" id="quizResultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Quiz Results</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <div class="mb-3">
+            <div class="result-circle mx-auto">
+              <span class="fs-1 fw-bold" id="result-percentage">85%</span>
+            </div>
+          </div>
+          <p class="mb-1">You scored <span id="correct-answers">8</span> out of <span id="total-questions">10</span> questions correctly.</p>
+          <p class="text-muted" id="result-message">Great job! You've passed the quiz.</p>
+          <div class="mt-4">
+            <h6 class="fw-bold">Next Steps</h6>
+            <p>Continue to the next lesson or review the current material again.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="continue-after-quiz">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="d-flex align-items-center text-white text-decoration-none mb-3" href="index.html">
+            <i class="fa-solid fa-book-open me-2 fs-3"></i>
+            <span class="fs-4 fw-bold">StudyStream</span>
+          </a>
+          <p class="text-white-50">Your gateway to quality online education. Learn at your own pace and track your progress.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="fw-bold mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+            <li class="mb-2"><a href="courses.html" class="footer-link">Courses</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">About Us</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-2 col-md-4">
+          <h5 class="fw-bold mb-4">Resources</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="footer-link">Blog</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Help Center</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">FAQ</a></li>
+            <li class="mb-2"><a href="#" class="footer-link">Tutorials</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4 col-md-4">
+          <h5 class="fw-bold mb-4">Stay Updated</h5>
+          <p class="text-white-50 mb-3">Subscribe to our newsletter for the latest updates on new courses and features.</p>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Your email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="my-4 border-white-50">
+      
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-2 mb-md-0">© 2024 StudyStream. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#" class="footer-link-sm">Terms of Service</a>
+          <a href="#" class="footer-link-sm">Privacy Policy</a>
+          <a href="#" class="footer-link-sm">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="data.js"></script>
+  <script src="auth.js"></script>
+  <script src="video-player.js"></script>
+  <script src="quiz.js"></script>
+  <script src="course-detail.js"></script>
+</body>
+</html>
